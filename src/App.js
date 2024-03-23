@@ -1,37 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-import HomePage from './HomePage';
-import ProductPage from './pages/ProductPage';
-import LoginPage from './pages/LoginPage';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Homepage from './component/Homepage';
+import Productpage from './component/Productpage';
 
-function App() {
+const App = () => {
   return (
+    <div>
     <Router>
-
-    
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/products" component={ProductPage} />
-          <Route path="/login" component={LoginPage} />
-        </Switch>
-      </div>
+      <Routes>
+        <Route exact path="/" element={<Homepage/>} />
+        <Route path="/ProductPage" element={<Productpage/>} />
+      </Routes>
     </Router>
+    </div>
   );
-}
+};
 
 export default App;
