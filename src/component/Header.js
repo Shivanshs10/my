@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Productpage from './Productpage';
 
 const Header = () => {
     return (
@@ -18,7 +19,7 @@ const Header = () => {
             <nav style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', width: '100%' }}>
                     <Link to="/" style={{ flex: '1 1 auto', textAlign: 'left' }}>Home</Link>
-                    <Link to="/products" style={{ flex: '1 1 auto', textAlign: 'center' }}>Products</Link>
+                    <Link to="/Productpage" style={{ flex: '1 1 auto', textAlign: 'center' }}>Products</Link>
                     <Link to="/login" style={{ flex: '1 1 auto', textAlign: 'right' }}>Login</Link>
                 </div>
             </nav>

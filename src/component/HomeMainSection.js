@@ -24,14 +24,14 @@ const HomeMainSection = () => {
   }, []);
 
   const handleShopNowClick = () => {
-    navigate('/products');
+    navigate('/Productpage');
   };
 
   return (
     <section className="home-main-section">
       <div className="about-us">
         <h2>About Us</h2>
-        <p>Company's mission and vision description goes here.</p>
+        <p>Welcome to our online store! We are passionate about providing high-quality products and exceptional customer service. Learn more about our story and commitment to your satisfaction.</p>
         <button onClick={handleShopNowClick}>Shop Now</button>
       </div>
       <div className="customer-reviews">

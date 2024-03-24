@@ -1,29 +1,27 @@
+// ProductItem.js
 import React, { useState } from 'react';
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, addToCart }) => {
     const [showDetails, setShowDetails] = useState(false);
 
     const handleToggleDetails = () => {
-        // Implement toggle logic here
+        setShowDetails(!showDetails);
     }
 
     const handleAddToCart = () => {
-        // Implement add to cart logic here
+        addToCart(product);
     }
 
     return (
         <div className="product-item" onMouseEnter={handleToggleDetails} onMouseLeave={handleToggleDetails}>
-            <img src={product.image} alt={product.name} />
+            <img src={product.image} alt={product.name} style={{ maxWidth: '100px', maxHeight: '100px' }} />
             <h3>{product.name}</h3>
-            {/* Product price */}
             <p>${product.price}</p>
-            {/* Add to cart button */}
             <button onClick={handleAddToCart}>Add to Cart</button>
-            {/* Display product details on hover */}
             {showDetails && (
                 <div className="product-details">
-                    {/* Product details */}
-                    {/* Implement product details display here */}
+                    <p>Description: {product.description}</p>
+                    <p>Category: {product.category}</p>
                 </div>
             )}
         </div>

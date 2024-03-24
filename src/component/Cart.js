@@ -1,23 +1,24 @@
 import React from 'react';
 import CartItem from './CartItem';
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, removeFromCart }) => {
+    if (!cart || cart.length === 0) {
+        return <div className="cart">Cart is empty</div>;
+    }
+
+    const calculateTotal = (cart) => {
+        return cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2);
+    }
+
     return (
         <div className="cart">
             <h2>Cart</h2>
-            {/* Mapping through cart items and rendering CartItem for each item */}
             {cart.map(item => (
-                <CartItem key={item.id} item={item} />
+                <CartItem key={item.id} item={item} removeFromCart={removeFromCart} />
             ))}
-            {/* Total price of all items in the cart */}
             <p>Total: ${calculateTotal(cart)}</p>
         </div>
     );
-}
-
-// Function to calculate total price of all items in the cart
-const calculateTotal = (cart) => {
-    // Implement logic to calculate total price here
 }
 
 export default Cart;

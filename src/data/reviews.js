@@ -40,8 +40,14 @@ const reviews = [
     productName: "Product D",
     customerName: "Michael Johnson",
     reviewContent: "Amazing value for the price.",
-    stars: 5
-  }
+    stars: 4
+  },
+  {
+    productName: "Product E",
+    customerName: "Klay Trevor",
+    reviewContent: "Took too long to arrive.",
+    stars: 1
+  },
 ];
 
 export default reviews;
