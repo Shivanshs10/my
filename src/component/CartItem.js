@@ -7,12 +7,16 @@ const CartItem = ({ item, removeFromCart }) => {
     };
 
     const handleRemoveFromCart = () => {
-        removeFromCart(item);
+        // If the quantity is greater than one, decrement it by one
+        if (item.quantity > 1) {
+            removeFromCart({...item, quantity: item.quantity - 1});
+        } else {
+            removeFromCart(item); // Otherwise, remove the whole product
+        }
     }
 
     return (
         <div className="cart-item">
-            {/* Adjusted image size */}
             <img src={item.image} alt={item.name} style={{...imageStyle, width: '50px', height: '50px'}} />
             <div>
                 <h3>{item.name}</h3>

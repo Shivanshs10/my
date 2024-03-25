@@ -20,9 +20,17 @@ const Productpage = () => {
     };
 
     const removeFromCart = (product) => {
-        const updatedCart = cart.filter(item => item.id !== product.id);
-        setCart(updatedCart);
+        const existingItemIndex = cart.findIndex(item => item.id === product.id);
+        if (cart[existingItemIndex].quantity > 1) {
+            const updatedCart = [...cart];
+            updatedCart[existingItemIndex].quantity--;
+            setCart(updatedCart);
+        } else {
+            const updatedCart = cart.filter(item => item.id !== product.id);
+            setCart(updatedCart);
+        }
     };
+    
 
     return (
         <div className="product-page" style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>

@@ -20,7 +20,7 @@ const Cart = ({ cart, removeFromCart }) => {
             <h2><strong>Shopping Cart</strong></h2>
             {cart.map(item => (
                 <div key={item.id} className="cart-item">
-                    <img src={item.image} alt={item.name} />
+                    <img src={item.image} alt={item.name} style={{ width: '50px', height: '50px' }} />
                     <div>
                         <h3>{item.name}</h3>
                         <p>Price: ${item.price}</p>
@@ -36,3 +36,16 @@ const Cart = ({ cart, removeFromCart }) => {
 }
 
 export default Cart;
+
+// Add CSS directly in the same file using template literals
+const cartStyles = `
+    .cart-item img {
+        width: 50px;
+        height: 50px;
+    }
+`;
+
+// Inject CSS into the document
+const styleTag = document.createElement('style');
+styleTag.textContent = cartStyles;
+document.head.appendChild(styleTag);
