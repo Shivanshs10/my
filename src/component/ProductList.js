@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+// ProductList.js
+import React from 'react';
 import ProductItem from './ProductItem';
-import productsData from '../data/products'; // Assuming products.js contains product data
+import productsData from '../data/products';
 
-const ProductList = () => {
-    const [cart, setCart] = useState([]);
-
-    const addToCart = (product) => {
-        setCart(prevCart => [...prevCart, product]); // Use functional update to ensure proper state update
-    };
-
+const ProductList = ({ addToCart }) => {
     return (
         <div className="product-list">
             {productsData.map((product, index) => (

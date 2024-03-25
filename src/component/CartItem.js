@@ -3,8 +3,6 @@ import React from 'react';
 
 const CartItem = ({ item, removeFromCart }) => {
     const imageStyle = {
-        maxWidth: '100px',
-        maxHeight: '100px',
         marginRight: '10px'
     };
 
@@ -14,7 +12,8 @@ const CartItem = ({ item, removeFromCart }) => {
 
     return (
         <div className="cart-item">
-            <img src={item.image} alt={item.name} style={imageStyle} />
+            {/* Adjusted image size */}
+            <img src={item.image} alt={item.name} style={{...imageStyle, width: '50px', height: '50px'}} />
             <div>
                 <h3>{item.name}</h3>
                 <p>${item.price}</p>
